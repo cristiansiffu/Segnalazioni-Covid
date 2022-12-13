@@ -1,6 +1,6 @@
 package com.Segnalazioni.Covid.model;
 
-public enum Sanificazione {
+public enum Disinfection {
 	SI,NO;
 
 }

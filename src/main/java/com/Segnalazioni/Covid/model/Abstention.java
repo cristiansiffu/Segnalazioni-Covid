@@ -1,5 +1,5 @@
 package com.Segnalazioni.Covid.model;
 
-public enum Astensione {
+public enum Abstention {
 SI, NO;
 }

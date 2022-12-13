@@ -1,6 +1,6 @@
 package com.Segnalazioni.Covid.model;
 
-public enum Ruolo {
+public enum Roles {
 	
 	DIPENDENTE, MANAGER;
 

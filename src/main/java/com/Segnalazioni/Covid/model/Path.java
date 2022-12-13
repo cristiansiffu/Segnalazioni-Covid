@@ -14,10 +14,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Percorso {
+public class Path {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String descrizione;
+	private String description;
 
 }

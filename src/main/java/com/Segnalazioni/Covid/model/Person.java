@@ -21,18 +21,18 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Persona {
+public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String codiceFiscale;
-	private String nome;
-	private String cognome;
+	private String fiscalCode;
+	private String name;
+	private String surname;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private Date datadiNascita;
-	private Ruolo ruolo;
+	private Date dateOfBirth;
+	private Roles role;
 	@ManyToOne(fetch = FetchType.EAGER, cascade =CascadeType.MERGE)
-	private List<Segnalazione> segnalazioni;
+	private List<Report> reportList;
 	
 
 }

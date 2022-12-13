@@ -21,39 +21,39 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Segnalazione {
+public class Report {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private TipoDiSegnalazione tipoDiSegnalazione;
+	private TypeOfReport typeOfReport;
 	@OneToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.EAGER)
-	private Percorso percorso;
+	private Path path;
 	@ManyToOne(fetch = FetchType.EAGER, cascade =CascadeType.MERGE)
-	private Persona persona;
+	private Person person;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private Date dataSegnalazione;
+	private Date reportingDate;
 	private Triage triage;
-	private Astensione astensione;
-	private Sanificazione sanificazione;
-	private String domanda1;
-	private String domanda2;
-	private String domanda3;
-	private String domanda4;
-	private String domanda5;
-	private String domanda6;
-	private String domanda7;
-	private String risposta1;
-	private String risposta2;
-	private String risposta3;
-	private String risposta4;
-	private String risposta5;
-	private String risposta6;
-	private String risposta7;
-	private NuovaClassificazione nuovaClassificazione;
-	private VecchiaClassificazione vecchiaClassificazione;
+	private Abstention abstention;
+	private Disinfection disinfection;
+	private String question1;
+	private String question2;
+	private String question3;
+	private String question4;
+	private String question5;
+	private String question6;
+	private String question7;
+	private String answer1;
+	private String answer2;
+	private String answer3;
+	private String answer4;
+	private String answer5;
+	private String answer6;
+	private String answer7;
+	private NewClassification newClassification;
+	private OldClassification oldClassification;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private Date dataAstensioneProposta;
+	private Date proposedAbstentionDate;
 	
 	
 	

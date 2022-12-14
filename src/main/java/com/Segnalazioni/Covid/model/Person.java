@@ -12,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,7 +32,8 @@ public class Person {
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date dateOfBirth;
 	private Roles role;
-	@ManyToOne(fetch = FetchType.EAGER, cascade =CascadeType.MERGE)
+	@OneToMany(mappedBy = "person",cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE,
+			CascadeType.REFRESH }, fetch = FetchType.EAGER)
 	private List<Report> reportList;
 	
 

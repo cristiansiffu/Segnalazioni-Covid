@@ -25,7 +25,7 @@ import lombok.ToString;
 public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idPerson;
 	private String fiscalCode;
 	private String name;
 	private String surname;

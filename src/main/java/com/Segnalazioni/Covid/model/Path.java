@@ -17,7 +17,7 @@ import lombok.ToString;
 public class Path {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idReport;
 	private String description;
 
 }

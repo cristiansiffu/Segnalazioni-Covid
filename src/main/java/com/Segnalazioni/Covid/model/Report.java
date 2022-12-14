@@ -25,10 +25,8 @@ public class Report {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idReport;
 	private TypeOfReport typeOfReport;
-//	@OneToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.PERSIST }, fetch = FetchType.EAGER)
-//	private Path path;
 	@ManyToOne(fetch = FetchType.EAGER, cascade =CascadeType.MERGE)
 	private Person person;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")

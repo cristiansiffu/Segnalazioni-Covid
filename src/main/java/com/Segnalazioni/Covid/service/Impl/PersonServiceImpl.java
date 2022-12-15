@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import com.Segnalazioni.Covid.exception.SegnalazioniException;
 
+import com.Segnalazioni.Covid.exception.SegnalazioniException;
 import com.Segnalazioni.Covid.model.Person;
 import com.Segnalazioni.Covid.repository.PersonRepository;
 import com.Segnalazioni.Covid.service.PersonService;
-
+@Service
 public class PersonServiceImpl implements PersonService {
 	@Autowired
 	private PersonRepository personRepo;
@@ -27,38 +27,35 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
-	public void delete(Long Id) {
-		// TODO Auto-generated method stub
-
+	public Page<Person> getAll(Pageable page) {
+		return personRepo.findAll(page);
 	}
 
 	@Override
-	public Person update(Person person) {
-		// TODO Auto-generated method stub
-		return null;
+	public Person findById(Long id) {
+		   Optional<Person> person = personRepo.findById(id);
+	        if (person.isEmpty()) {
+	            throw new SegnalazioniException("Person not found.");
+	        }
+	        return person.get();
 	}
 
 	@Override
-	public List<Person> findAll() {
-		return personRepo.findAll();
+	public Optional<List<Person>>  findBySurname(String surname) {
+		Optional<List<Person>> personList = personRepo.findBySurname(surname);
+        if (personList.isEmpty()) {
+            throw new SegnalazioniException("Person not found.");
+        }
+        return personList;
 	}
 
 	@Override
-	public Optional<Person> findById(Long id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
-
-	@Override
-	public Optional<List<Person>> findBySurname(String surname) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
-
-	@Override
-	public Optional<Person> findByFiscalCode(String fiscalCode) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public Person findByFiscalCode(String fiscalCode) {
+		Optional<Person> person = personRepo.findByFiscalCode(fiscalCode);
+        if (person.isEmpty()) {
+            throw new SegnalazioniException("Person not found.");
+        }
+        return person.get();
 	}
 
 	

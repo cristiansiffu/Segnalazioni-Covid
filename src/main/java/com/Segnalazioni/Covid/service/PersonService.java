@@ -14,12 +14,13 @@ public interface PersonService {
 	public Person add(Person person);
 	public void delete (Long Id);
 	public Person update (Person person);
-	public Page<Person> findAll(Pageable page);
+	public List<Person> findAll();
 	
 	/***************** FILTRI RICERCA *****************/
 	
 	public Optional<Person> findById (Long id);
 	public Optional<List<Person>> findBySurname(String surname);
 	public Optional<Person> findByFiscalCode (String fiscalCode);
+	
 	
 }

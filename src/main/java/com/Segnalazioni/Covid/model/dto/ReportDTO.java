@@ -1,30 +1,35 @@
-package com.Segnalazioni.Covid.model;
+package com.Segnalazioni.Covid.model.dto;
 
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.Segnalazioni.Covid.model.Abstention;
+import com.Segnalazioni.Covid.model.Disinfection;
+import com.Segnalazioni.Covid.model.NewClassification;
+import com.Segnalazioni.Covid.model.OldClassification;
+import com.Segnalazioni.Covid.model.Triage;
+import com.Segnalazioni.Covid.model.TypeOfReport;
+
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
-@Entity
-public class Report {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idReport;
+public class ReportDTO {
+	
+	@Enumerated(EnumType.STRING)
 	private TypeOfReport typeOfReport;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-	private Person person;
+	private Long person;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date reportingDate;
+	@Enumerated(EnumType.STRING)
 	private Triage triage;
+	@Enumerated(EnumType.STRING)
 	private Abstention abstention;
+	@Enumerated(EnumType.STRING)
 	private Disinfection disinfection;
 	private String question1;
 	private String question2;
@@ -40,17 +45,15 @@ public class Report {
 	private String answer5;
 	private String answer6;
 	private String answer7;
+	@Enumerated(EnumType.STRING)
 	private NewClassification newClassification;
+	@Enumerated(EnumType.STRING)
 	private OldClassification oldClassification;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date proposedAbstentionDate;
-
-	public Long getIdReport() {
-		return idReport;
-	}
-
-	public void setIdReport(Long idReport) {
-		this.idReport = idReport;
+	
+	public ReportDTO() {
+		super();
 	}
 
 	public TypeOfReport getTypeOfReport() {
@@ -61,11 +64,11 @@ public class Report {
 		this.typeOfReport = typeOfReport;
 	}
 
-	public Person getPerson() {
+	public Long getPerson() {
 		return person;
 	}
 
-	public void setPerson(Person person) {
+	public void setPerson(Long person) {
 		this.person = person;
 	}
 
@@ -235,10 +238,6 @@ public class Report {
 
 	public void setProposedAbstentionDate(Date proposedAbstentionDate) {
 		this.proposedAbstentionDate = proposedAbstentionDate;
-	}
-
-	public Report() {
-		super();
 	}
 
 }

@@ -14,11 +14,11 @@ public class PathServiceImpl implements PathService {
 @Autowired
 private PathRepository pathRepo;
 	@Override
-	public Path findById(Long id) {
+	public Optional <Path> findById(Long id) {
 		Optional <Path> path= pathRepo.findById(id);
 		if(path.isEmpty())
-			throw new SegnalazioniException("Percorso nnon trovato");
-		return path.get();
+			throw new SegnalazioniException("Percorso non trovato");
+		return path;
 	}
 
 }

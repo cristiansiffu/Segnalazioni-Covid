@@ -22,7 +22,7 @@ public class ReportDTO {
 	@Enumerated(EnumType.STRING)
 	private TypeOfReport typeOfReport;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-	private Long person;
+	private Long idP;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date reportingDate;
 	@Enumerated(EnumType.STRING)
@@ -64,12 +64,12 @@ public class ReportDTO {
 		this.typeOfReport = typeOfReport;
 	}
 
-	public Long getPerson() {
-		return person;
+	public Long getIdP() {
+		return idP;
 	}
 
-	public void setPerson(Long person) {
-		this.person = person;
+	public void setIdP(Long idP) {
+		this.idP = idP;
 	}
 
 	public Date getReportingDate() {

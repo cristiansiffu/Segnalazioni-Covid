@@ -9,15 +9,19 @@ import jakarta.persistence.Id;
 public class Path {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idReport;
+	private Long idPath;
 	private String description;
 
-	public Long getIdReport() {
-		return idReport;
+	public Path() {
+		super();
 	}
 
-	public void setIdReport(Long idReport) {
-		this.idReport = idReport;
+	public Long getIdPath() {
+		return idPath;
+	}
+
+	public void setIdPath(Long idPath) {
+		this.idPath = idPath;
 	}
 
 	public String getDescription() {
@@ -26,10 +30,6 @@ public class Path {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Path() {
-		super();
 	}
 
 }

@@ -1,6 +1,8 @@
 package com.Segnalazioni.Covid.model.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,6 +24,8 @@ public class PersonDTO {
 
 	@Enumerated(EnumType.STRING)
 	private Roles role;
+
+	private List<ReportDTO> reportList = new ArrayList<>();
 
 	public PersonDTO() {
 		super();
@@ -65,6 +69,14 @@ public class PersonDTO {
 
 	public void setRole(Roles role) {
 		this.role = role;
+	}
+
+	public List<ReportDTO> getReportList() {
+		return reportList;
+	}
+
+	public void setReportList(List<ReportDTO> reportList) {
+		this.reportList = reportList;
 	}
 
 }

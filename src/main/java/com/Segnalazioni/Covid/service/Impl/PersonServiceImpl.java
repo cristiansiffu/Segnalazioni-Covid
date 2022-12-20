@@ -12,6 +12,7 @@ import com.Segnalazioni.Covid.exception.SegnalazioniException;
 import com.Segnalazioni.Covid.model.Person;
 import com.Segnalazioni.Covid.repository.PersonRepository;
 import com.Segnalazioni.Covid.service.PersonService;
+
 @Service
 public class PersonServiceImpl implements PersonService {
 	@Autowired
@@ -19,8 +20,8 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public Person add(Person person) {
-		Optional<Person> newPerson= personRepo.findById(person.getIdPerson());
-		if(!newPerson.isPresent())
+		Optional<Person> newPerson = personRepo.findById(person.getIdPerson());
+		if (!newPerson.isPresent())
 			return personRepo.save(person);
 		else
 			throw new SegnalazioniException("Dipendente gia' esistente");
@@ -33,30 +34,29 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public Person findById(Long id) {
-		   Optional<Person> person = personRepo.findById(id);
-	        if (person.isEmpty()) {
-	            throw new SegnalazioniException("Person not found.");
-	        }
-	        return person.get();
+		Optional<Person> person = personRepo.findById(id);
+		if (person.isEmpty()) {
+			throw new SegnalazioniException("Person not found.");
+		}
+		return person.get();
 	}
 
 	@Override
-	public Optional<List<Person>>  findBySurname(String surname) {
+	public Optional<List<Person>> findBySurname(String surname) {
 		Optional<List<Person>> personList = personRepo.findBySurname(surname);
-        if (personList.isEmpty()) {
-            throw new SegnalazioniException("Person not found.");
-        }
-        return personList;
+		if (personList.isEmpty()) {
+			throw new SegnalazioniException("Person not found.");
+		}
+		return personList;
 	}
 
 	@Override
 	public Person findByFiscalCode(String fiscalCode) {
 		Optional<Person> person = personRepo.findByFiscalCode(fiscalCode);
-        if (person.isEmpty()) {
-            throw new SegnalazioniException("Person not found.");
-        }
-        return person.get();
+		if (person.isEmpty()) {
+			throw new SegnalazioniException("Person not found.");
+		}
+		return person.get();
 	}
 
-	
 }

@@ -41,9 +41,8 @@ private ReportRepository reportRepo;
 
 
 	@Override
-	public Optional<List<Report>> findByReportingDate(Date reportingDate) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public List<Report> findByReportingDate(Date reportingDate) {
+		return reportRepo.findAllByReportingDate(reportingDate);
 	}
 
 
@@ -52,9 +51,10 @@ private ReportRepository reportRepo;
 		return reportRepo.findAll(page);
 	}
 
-	
-
-	
+	@Override
+	public List<Report> findAllByDateBetween(Date dateMin, Date dateMax) {
+		return reportRepo.findAllByReportingDateBetween(dateMin, dateMax);
+	}
 
 	
 }

@@ -18,8 +18,8 @@ public interface ReportService {
 	
 	/***************** FILTRI RICERCA *****************/
 	public Report findById(Long id);
-	public Optional <List<Report>> findByReportingDate(Date reportingDate);
-	public Page <List<Report>> findBetweenDate(Date dateMin, Date dateMax, Pageable pageable);
+	public List<Report> findByReportingDate(Date reportingDate);
+	public List<Report> findAllByDateBetween(Date dateMin, Date dateMax);
 
 
 }

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.Segnalazioni.Covid.exception.SegnalazioniException;
 import com.Segnalazioni.Covid.model.Report;
-import com.Segnalazioni.Covid.model.TypeOfReport;
+
 import com.Segnalazioni.Covid.repository.ReportRepository;
 import com.Segnalazioni.Covid.service.ReportService;
 @Service
@@ -32,44 +32,29 @@ private ReportRepository reportRepo;
 	}
 
 	@Override
-	public void delete(Long id) {
-		Optional<Report> reportResult= reportRepo.findById(id);
-		if(reportResult.isPresent())
-			reportRepo.deleteById(id);
-		else
-			throw new SegnalazioniException("Impossibile eliminare il report");
-		
+	public Report findById(Long id) {
+		Optional<Report> report= reportRepo.findById(id);
+		if(report.isEmpty())
+			throw new SegnalazioniException("Report not found.");
+		return report.get();
 	}
 
-	@Override
-	public Report update(Report report) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Page<Report> findAll(java.awt.print.Pageable page) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Optional<Report> findById(Long id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
-
-	@Override
-	public Optional<List<Report>> findByTypeOfReport(TypeOfReport type) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
 
 	@Override
 	public Optional<List<Report>> findByReportingDate(Date reportingDate) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
+
+
+	@Override
+	public Page<Report> getAll(Pageable page) {
+		return reportRepo.findAll(page);
+	}
+
+	
+
+	
 
 	
 }

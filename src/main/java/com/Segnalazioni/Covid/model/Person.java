@@ -16,7 +16,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Person {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long idPerson;
 	private String fiscalCode;
 	private String name;

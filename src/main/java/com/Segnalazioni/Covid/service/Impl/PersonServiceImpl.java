@@ -20,11 +20,7 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public Person add(Person person) {
-		Optional<Person> newPerson = personRepo.findById(person.getIdPerson());
-		if (!newPerson.isPresent())
 			return personRepo.save(person);
-		else
-			throw new SegnalazioniException("Dipendente gia' esistente");
 	}
 
 	@Override

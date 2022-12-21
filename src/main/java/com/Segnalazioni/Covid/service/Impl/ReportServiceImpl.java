@@ -24,11 +24,7 @@ public class ReportServiceImpl implements ReportService {
 private ReportRepository reportRepo;
 	@Override
 	public Report add(Report report) {
-		Optional<Report> newReport = reportRepo.findById(report.getIdReport());
-		if(!newReport.isPresent())
-			return reportRepo.save(newReport.get());
-		else
-			throw new SegnalazioniException("report gia' esistente");
+		return reportRepo.save(report);
 	}
 
 	@Override

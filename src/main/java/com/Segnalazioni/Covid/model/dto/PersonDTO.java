@@ -1,5 +1,6 @@
 package com.Segnalazioni.Covid.model.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class PersonDTO {
 	private String name;
 	private String surname;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private Date dateOfBirth;
+	private LocalDate dateOfBirth;
 	private Roles role;
 	private List<ReportDTO> reportList;
 
@@ -42,7 +43,7 @@ public class PersonDTO {
 		return surname;
 	}
 
-	public Date getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 
@@ -72,7 +73,7 @@ public class PersonDTO {
 		this.surname = surname;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

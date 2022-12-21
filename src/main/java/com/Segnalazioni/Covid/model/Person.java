@@ -1,5 +1,6 @@
 package com.Segnalazioni.Covid.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class Person {
 	private String name;
 	private String surname;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private Date dateOfBirth;
+	private LocalDate dateOfBirth;
 	private Roles role;
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE,
 			CascadeType.REFRESH }, fetch = FetchType.EAGER)
@@ -60,11 +61,11 @@ public class Person {
 		this.surname = surname;
 	}
 
-	public Date getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

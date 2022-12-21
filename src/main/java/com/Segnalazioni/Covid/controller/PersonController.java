@@ -17,7 +17,7 @@ import com.Segnalazioni.Covid.model.dto.converter.PersonDTOConverter;
 import com.Segnalazioni.Covid.service.Impl.PersonServiceImpl;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("")
 public class PersonController {
 
 	@Autowired

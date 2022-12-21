@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Segnalazioni.Covid.model.Report;
@@ -19,6 +20,7 @@ import com.Segnalazioni.Covid.service.Impl.ReportServiceImpl;
 @RestController
 @RequestMapping("/report")
 public class ReportController {
+	
 	@Autowired
 	private ReportDTOConverter reportDTOConverter;
 	
@@ -29,6 +31,7 @@ public class ReportController {
 	public ResponseEntity<Page<Report>> getAllReport(Pageable pageable){
 		Page<Report> report=reportServiceImpl.getAll(pageable);
 		return new ResponseEntity<>(report, HttpStatus.OK);
+		
 	}
 	
 	@PostMapping("/addReport")
@@ -36,6 +39,9 @@ public class ReportController {
 			Report report = reportDTOConverter.convert(reportDTO);
 			return new ResponseEntity<Report>(reportServiceImpl.add(report), HttpStatus.CREATED);
 	}
-	}
+	
+
+	
+}
 
 

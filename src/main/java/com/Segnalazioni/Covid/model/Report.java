@@ -16,7 +16,7 @@ import jakarta.persistence.ManyToOne;
 public class Report {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idReport;
 	private TypeOfReport typeOfReport;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)

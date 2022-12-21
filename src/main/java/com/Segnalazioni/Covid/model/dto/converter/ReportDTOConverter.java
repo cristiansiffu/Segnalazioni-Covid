@@ -17,8 +17,9 @@ public class ReportDTOConverter implements Converter<ReportDTO, Report>{
 	@Override
 	public Report convert(ReportDTO source) {
 		Report report = new Report();
+		report.setIdReport(source.getIdReport());
 		report.setTypeOfReport(source.getTypeOfReport());
-		report.setPerson(personRepository.findById(source.getIdP()).get());
+		report.setPerson(personRepository.findById(source.getIdPerson()).get());
 		report.setReportingDate(source.getReportingDate());
 		report.setTriage(source.getTriage());
 		report.setAbstention(source.getAbstention());

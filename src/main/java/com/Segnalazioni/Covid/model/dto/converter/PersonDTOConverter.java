@@ -12,6 +12,7 @@ public class PersonDTOConverter implements Converter<PersonDTO, Person> {
 	@Override
 	public Person convert(PersonDTO source) {
 		Person person = new Person();
+		person.setIdPerson(source.getIdPerson());
 		person.setDateOfBirth(source.getDateOfBirth());
 		person.setFiscalCode(source.getFiscalCode());
 		person.setName(source.getName());

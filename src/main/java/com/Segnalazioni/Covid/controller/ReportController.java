@@ -27,17 +27,17 @@ public class ReportController {
 	@Autowired
 	private ReportServiceImpl reportServiceImpl;
 	
-	@GetMapping("/getAllReport")
+	@GetMapping("/getAll")
 	public ResponseEntity<Page<Report>> getAllReport(Pageable pageable){
 		Page<Report> report=reportServiceImpl.getAll(pageable);
 		return new ResponseEntity<>(report, HttpStatus.OK);
 		
 	}
 	
-	@PostMapping("/addReport")
+	@PostMapping("/add")
 	public ResponseEntity<Report> addReport(@RequestBody ReportDTO reportDTO){
 			Report report = reportDTOConverter.convert(reportDTO);
-			return new ResponseEntity<Report>(reportServiceImpl.add(report), HttpStatus.CREATED);
+			return new ResponseEntity<>(reportServiceImpl.add(report), HttpStatus.CREATED);
 	}
 	
 

@@ -17,7 +17,7 @@ import com.Segnalazioni.Covid.model.dto.converter.PersonDTOConverter;
 import com.Segnalazioni.Covid.service.Impl.PersonServiceImpl;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("person")
 public class PersonController {
 
 	@Autowired
@@ -26,13 +26,13 @@ public class PersonController {
 	@Autowired
 	private PersonServiceImpl personServiceImpl;
 
-	@GetMapping("/getAllPersons")
+	@GetMapping("/getAll")
 	public ResponseEntity<Page<Person>> getAllPersons(Pageable pageable) {
 		Page<Person> persons = personServiceImpl.getAll(pageable);
 		return new ResponseEntity<>(persons, HttpStatus.OK);
 	}
 
-	@PostMapping("/addPerson")
+	@PostMapping("/add")
 	public ResponseEntity<Person> addPerson(@RequestBody PersonDTO personDTO) {
 		Person person = personDTOConverter.convert(personDTO);
 		return new ResponseEntity<>(personServiceImpl.add(person), HttpStatus.CREATED);

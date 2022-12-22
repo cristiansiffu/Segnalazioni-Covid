@@ -10,7 +10,7 @@ Il sistema richiede un'autenticazione, che prevede diversi ruoli: Dipendente opp
 - [Documentazione API] (#Documentazione-API)
 
 # ENTITY
-### Segnalazione
+## Segnalazione
 - id (chiave primaria)
 - tipo di segnalazione (enum)
 - codice percorso (chiave esterna)

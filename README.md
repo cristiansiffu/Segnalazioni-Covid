@@ -1,7 +1,16 @@
 # Segnalazioni-Covid
+Sviluppo di un applicazione per la gestione delle segnalazioni di casi Covid-19.
+Lo sviluppo del back-end è basato su Web Service REST, Spring Boot e database PostgreSQL, che ci permette di inserire nuove segnalazioni sia in caso di positività sia gli aggiornamenti di fine malattia.
+
+Il sistema richiede un'autenticazione, che prevede diversi ruoli: Dipendente oppure Medico. Una volta entrato come Dipendente verrà richiesto se si è un Manager oppure no.
+
+## Contenuti
+- [Entity] (#Entity)
+- [Gestione dati] (#gestione-dati)
+- [Documentazione API] (#Documentazione-API)
 
 # ENTITY
-## Segnalazione
+### Segnalazione
 - id (chiave primaria)
 - tipo di segnalazione (enum)
 - codice percorso (chiave esterna)

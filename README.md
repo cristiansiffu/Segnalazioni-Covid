@@ -5,11 +5,11 @@ Lo sviluppo del back-end è basato su Web Service REST, Spring Boot e database P
 Il sistema richiede un'autenticazione, che prevede diversi ruoli: Dipendente oppure Medico. Una volta entrato come Dipendente verrà richiesto se si è un Manager oppure no.
 
 ## Contenuti
-- [Entity] (#Entity)
+- [Entity] (#ENTITY)
 - [Gestione dati] (#gestione-dati)
 - [Documentazione API] (#Documentazione-API)
 
-# ENTITY
+## ENTITY
 ## Segnalazione
 - id (chiave primaria)
 - tipo di segnalazione (enum)

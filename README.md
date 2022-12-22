@@ -11,43 +11,50 @@ Il sistema richiede un'autenticazione, che prevede diversi ruoli: Dipendente opp
 - [Test](#Test)
 
 ## Entity
-## Segnalazione
-- id (chiave primaria)
-- tipo di segnalazione (enum)
+#### Report
+- idReport (primary key)
+- person (secondary key - manyToOne)
+- typeOfReport (enum)
 - codice percorso (chiave esterna)
-- persona (chiave esterna)
-- data segnalazione
+- reportingDate
 - triage (enum)
-- astensione (enum)
-- sanificazione (enum)
-- domanda 1
-- domanda 2
-- domanda 3
-- domanda 4
-- domanda 5 
-- domanda 6
-- domanda 7
-- risposta 1
-- risposta 2
-- risposta 3
-- risposta 4
-- risposta 5
-- risposta 6
-- risposta 7
-- nuova classificazione
-- vecchia classificazione
+- abstention (enum)
+- disinfection (enum)
+- question1
+- question2
+- question3
+- question4
+- question5
+- question6
+- question7
+- question8
+- question9
+- answer1
+- answer2
+- answer3
+- answer4
+- answer5
+- answer6
+- answer7
+- answer8
+- answer9
+- newClassification (enum)
+- oldClassification (enum)
+- proposedAbstentionDate
+- path (secondary key - OneToOne)
 
-## Persona
-- id (chiave primaria)
-- codice fiscale
-- nome
-- cognome
-- data di nascita
-- ruolo
+#### Person
+- idPerson (primary key)
+- fiscalCode
+- name
+- surname
+- dateOfBirth
+- role (enum)
+- reportList (List<Report> - OneToMany)
 
-## Percorso
-- id
-- risposta percorso (pdf?!?)
+#### Path
+- idPath
+- description
 
 # Gestione Dati
 

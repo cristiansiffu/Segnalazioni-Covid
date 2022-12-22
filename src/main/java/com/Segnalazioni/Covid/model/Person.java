@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -13,6 +13,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class Person {
@@ -22,8 +24,9 @@ public class Person {
 	private String fiscalCode;
 	private String name;
 	private String surname;
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private LocalDate dateOfBirth;
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+	private Date dateOfBirth;
 	private Roles role;
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE,
 			CascadeType.REFRESH }, fetch = FetchType.EAGER)
@@ -61,11 +64,11 @@ public class Person {
 		this.surname = surname;
 	}
 
-	public LocalDate getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDate dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

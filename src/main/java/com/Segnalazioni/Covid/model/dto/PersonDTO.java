@@ -4,9 +4,11 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.Segnalazioni.Covid.model.Roles;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 public class PersonDTO {
 
@@ -14,19 +16,20 @@ public class PersonDTO {
 	private String fiscalCode;
 	private String name;
 	private String surname;
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private LocalDate dateOfBirth;
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+	private Date dateOfBirth;
 	private Roles role;
 	private List<ReportDTO> reportList;
 
-	/***************CONSTRUCTOR*****************/
-	
+	/*************** CONSTRUCTOR *****************/
+
 	public PersonDTO() {
 		super();
 	}
 
-	/***************GETTER*****************/
-	
+	/*************** GETTER *****************/
+
 	public Long getIdPerson() {
 		return idPerson;
 	}
@@ -43,7 +46,7 @@ public class PersonDTO {
 		return surname;
 	}
 
-	public LocalDate getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
@@ -54,8 +57,8 @@ public class PersonDTO {
 	public List<ReportDTO> getReportList() {
 		return reportList;
 	}
-	
-	/***************SETTER*****************/
+
+	/*************** SETTER *****************/
 
 	public void setIdPerson(Long idPerson) {
 		this.idPerson = idPerson;
@@ -73,7 +76,7 @@ public class PersonDTO {
 		this.surname = surname;
 	}
 
-	public void setDateOfBirth(LocalDate dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -84,8 +87,5 @@ public class PersonDTO {
 	public void setReportList(List<ReportDTO> reportList) {
 		this.reportList = reportList;
 	}
-	
-	
 
-	
 }

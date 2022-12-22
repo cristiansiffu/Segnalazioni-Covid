@@ -67,4 +67,17 @@ Il sistema richiede un'autenticazione, che prevede diversi ruoli: Dipendente opp
   http://localhost:8080/person/getAll
   ```
   
+   - Chiamata per un record in Person
+  ```
+  http://localhost:8080/person/add
+  ```
+   - Chiamata per recuperare tutti i record presenti in Record
+  ```
+  http://localhost:8080/person/getAll
+  ```
+  
+   - Chiamata per un record in Record
+  ```
+  http://localhost:8080/person/add
+  ```
 

@@ -1,12 +1,13 @@
 package com.Segnalazioni.Covid.model.dto;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 import com.Segnalazioni.Covid.model.Roles;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
@@ -19,6 +20,7 @@ public class PersonDTO {
 	@Temporal(TemporalType.TIMESTAMP)
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date dateOfBirth;
+	@Enumerated(EnumType.STRING)
 	private Roles role;
 	private List<ReportDTO> reportList;
 

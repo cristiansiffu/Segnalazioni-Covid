@@ -18,9 +18,7 @@ import com.opencsv.CSVReader;
 public class MyPersonFileReader {
 
 	public static List<Person> read(FileReader file) throws IOException, ParseException {
-		Roles dipendente= Roles.DIPENDENTE;
-		Roles manager= Roles.MANAGER;
-		
+
 		CSVReader reader = new CSVReader(file, ',', '\'');
 		List<Person> personList = new ArrayList<>();
 		String[] record = null;
@@ -32,12 +30,10 @@ public class MyPersonFileReader {
 			person.setName(record[1]);
 			person.setSurname(record[2]);
 			dateOfBirth = formatter.parse(record[3]);
-			if (record[4]=="DIPENDENTE")
-				person.setRole(dipendente);
-			else if (record [4]=="MANAGER")
-				person.setRole(manager);
-			else
-				person.setRole(null);
+			if (record[4].equalsIgnoreCase("DIPENDENTE"))
+				person.setRole(Roles.DIPENDENTE);
+			if (record[4].equalsIgnoreCase("MANAGER"))
+				person.setRole(Roles.MANAGER);
 			person.setDateOfBirth(dateOfBirth);
 			personList.add(person);
 		}

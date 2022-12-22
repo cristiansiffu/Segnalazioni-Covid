@@ -9,16 +9,20 @@ import com.Segnalazioni.Covid.exception.SegnalazioniException;
 import com.Segnalazioni.Covid.model.Path;
 import com.Segnalazioni.Covid.repository.PathRepository;
 import com.Segnalazioni.Covid.service.PathService;
+
 @Service
 public class PathServiceImpl implements PathService {
-@Autowired
-private PathRepository pathRepo;
+
+	@Autowired
+	private PathRepository pathRepository;
+
 	@Override
-	public Optional <Path> findById(Long id) {
-		Optional <Path> path= pathRepo.findById(id);
-		if(path.isEmpty())
-			throw new SegnalazioniException("Percorso non trovato");
-		return path;
+	public Path findById(Long id) {
+		Optional<Path> path = pathRepository.findById(id);
+		if (path.isEmpty()) {
+			throw new SegnalazioniException("Customer not found.");
+		}
+		return path.get();
 	}
 
 }

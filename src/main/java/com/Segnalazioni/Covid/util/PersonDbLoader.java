@@ -28,7 +28,7 @@ public class PersonDbLoader implements CommandLineRunner {
 		List<Person> personList= new ArrayList<>();
 		personList=MyPersonFileReader.read(fileReader);
 		for(Person p:personList)
-			personServiceImpl.add(p);
+			personServiceImpl.post(p);
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();
 	}catch (IOException e) {

@@ -25,7 +25,7 @@ public class Person {
 	private String name;
 	private String surname;
 	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date dateOfBirth;
 	private Roles role;
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE,

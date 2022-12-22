@@ -19,7 +19,7 @@ public class MyPersonFileReader {
 		List<Person> personList = new ArrayList<>();
 		String[] record = null;
 		while ((record = reader.readNext()) != null) {
-			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 			Date dateOfBirth;
 			Person person = new Person();
 			person.setFiscalCode(record[0]);

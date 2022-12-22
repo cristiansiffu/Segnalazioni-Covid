@@ -56,7 +56,15 @@ Il sistema richiede un'autenticazione, che prevede diversi ruoli: Dipendente opp
 - idPath
 - description
 
-# Gestione Dati
-
-#documentazione API
+## Gestione Dati
+- Si è deciso che non si possibile eliminare o modificare i record di Person in quanto in questo progetto Person altro non è che un prototipo del DB fornito da \#People.
+- Si è deciso che non sarà possibile modificare o eliminare dei Record. 
+  
+# Documentazione API
+  
+  - Chiamata per recuperare tutti i record presenti in Person
+  ```
+  http://localhost:8080/person/getAll
+  ```
+  
 

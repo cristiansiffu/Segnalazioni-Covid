@@ -1,7 +1,9 @@
-{"properties": [
-  {
-    "name": "segnalazioni.personpath",
-    "type": "java.lang.String",
-    "description": "A description for 'segnalazioni.personpath'"
-  }
-]}
+{
+	"properties": [
+		{
+			"name": "segnalazioni.personpath",
+			"type": "java.lang.String",
+			"description": "A description for 'segnalazioni.personpath'"
+		}
+	]
+}

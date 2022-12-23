@@ -23,17 +23,17 @@ public class PersonDbLoader implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-	FileReader fileReader= new FileReader(personPath);
-	try {
-		List<Person> personList= new ArrayList<>();
-		personList=MyPersonFileReader.read(fileReader);
-		for(Person p:personList)
-			personServiceImpl.post(p);
-	} catch (FileNotFoundException e) {
-		e.printStackTrace();
-	}catch (IOException e) {
-		e.printStackTrace();
-	}
+		FileReader fileReader = new FileReader(personPath);
+		try {
+			List<Person> personList = new ArrayList<>();
+			personList = MyPersonFileReader.read(fileReader);
+			for (Person p : personList)
+				personServiceImpl.post(p);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 

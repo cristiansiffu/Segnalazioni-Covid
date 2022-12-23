@@ -1,6 +1,6 @@
 package com.Segnalazioni.Covid.service.Impl;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +71,7 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
-	public Page<Person> findByDateOfBirth(LocalDate dateOfBirth, Pageable pageable) {
+	public Page<Person> findByDateOfBirth(Date dateOfBirth, Pageable pageable) {
 		return personRepository.findByDateOfBirthOrderByDateOfBirth(dateOfBirth, pageable);
 	}
 

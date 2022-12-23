@@ -1,6 +1,6 @@
 package com.Segnalazioni.Covid.service;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,7 +23,7 @@ public interface PersonService {
 	/***************** FILTRI RICERCA *****************/
 	public Person findByFiscalCode(String fiscalCode);
 
-	public Page<Person> findByDateOfBirth(LocalDate dateOfBirth, Pageable pageable);
+	public Page<Person> findByDateOfBirth(Date dateOfBirth, Pageable pageable);
 
 	public Page<Person> findBySurname(String surname, Pageable pageable);
 

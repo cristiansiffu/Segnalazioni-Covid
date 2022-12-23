@@ -1,6 +1,6 @@
 package com.Segnalazioni.Covid.controller;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -71,7 +71,7 @@ public class PersonController {
 
 	@GetMapping("/getByDateOfBirth")
 	public ResponseEntity<Page<Person>> findByDateOfBirth(
-			@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateOfBirth, Pageable pageable) {
+			@RequestParam("dateOfBirth") @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateOfBirth, Pageable pageable) {
 		Page<Person> persons = personServiceImpl.findByDateOfBirth(dateOfBirth, pageable);
 		return new ResponseEntity<Page<Person>>(persons, HttpStatus.OK);
 	}

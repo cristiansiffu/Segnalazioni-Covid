@@ -1,16 +1,26 @@
 package com.Segnalazioni.Covid.repository;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.Segnalazioni.Covid.model.Person;
 import com.Segnalazioni.Covid.model.Report;
+import com.Segnalazioni.Covid.model.TypeOfReport;
+
 @Repository
 public interface ReportRepository extends JpaRepository<Report, Long> {
-	
-	public List<Report> findAllByReportingDate(Date reportingDate);
-	public List<Report> findAllByReportingDateBetween(Date minDate, Date maxDate);
+
+	public Optional<Report> findById(Long id);
+
+	public Page<Report> findByPerson(Person person, Pageable pageable);
+
+	public Page<Report> findByTypeOfReport(TypeOfReport typeOfReport, Pageable pageable);
+
+	public Page<Report> findByReportingDateOrderByReportingDate(Date reportingDate, Pageable pageable);
 
 }

@@ -1,6 +1,5 @@
 package com.Segnalazioni.Covid.model.dto;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,15 +18,19 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 public class ReportDTO {
-	
+
 	private Long idReport;
+	@Enumerated(EnumType.STRING)
 	private TypeOfReport typeOfReport;
 	private Long idPerson;
 	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date reportingDate;
+	@Enumerated(EnumType.STRING)
 	private Triage triage;
+	@Enumerated(EnumType.STRING)
 	private Abstention abstention;
+	@Enumerated(EnumType.STRING)
 	private Disinfection disinfection;
 	private String question1;
 	private String question2;
@@ -53,13 +56,13 @@ public class ReportDTO {
 	private OldClassification oldClassification;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date proposedAbstentionDate;
-	
-	/***************CONSTRUCTOR*****************/
+
+	/*************** CONSTRUCTOR *****************/
 	public ReportDTO() {
 		super();
 	}
-	/***************GETTER*****************/
 
+	/*************** GETTER *****************/
 	public Long getIdReport() {
 		return idReport;
 	}
@@ -172,9 +175,7 @@ public class ReportDTO {
 		return proposedAbstentionDate;
 	}
 
-	
-	/***************SETTER*****************/
-	
+	/*************** SETTER *****************/
 	public void setIdReport(Long idReport) {
 		this.idReport = idReport;
 	}
@@ -287,5 +288,4 @@ public class ReportDTO {
 		this.proposedAbstentionDate = proposedAbstentionDate;
 	}
 
-	
 }

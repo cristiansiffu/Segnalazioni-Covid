@@ -1,56 +1,90 @@
 package com.Segnalazioni.Covid.service.Impl;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 import org.springframework.stereotype.Service;
 
 import com.Segnalazioni.Covid.exception.SegnalazioniException;
 import com.Segnalazioni.Covid.model.Report;
-
+import com.Segnalazioni.Covid.model.TypeOfReport;
+import com.Segnalazioni.Covid.repository.PersonRepository;
 import com.Segnalazioni.Covid.repository.ReportRepository;
 import com.Segnalazioni.Covid.service.ReportService;
+
 @Service
 public class ReportServiceImpl implements ReportService {
-@Autowired
-private ReportRepository reportRepo;
-	@Override
-	public Report add(Report report) {
-		return reportRepo.save(report);
-	}
+
+	@Autowired
+	private ReportRepository reportRepository;
+
+	@Autowired
+	private PersonRepository personRepository;
 
 	@Override
 	public Report findById(Long id) {
-		Optional<Report> report= reportRepo.findById(id);
-		if(report.isEmpty())
+		Optional<Report> report = reportRepository.findById(id);
+		if (report.isEmpty()) {
 			throw new SegnalazioniException("Report not found.");
+		}
 		return report.get();
 	}
 
-
 	@Override
-	public List<Report> findByReportingDate(Date reportingDate) {
-		return reportRepo.findAllByReportingDate(reportingDate);
-	}
-
-
-	@Override
-	public Page<Report> getAll(Pageable page) {
-		return reportRepo.findAll(page);
+	public Page<Report> getAll(Pageable pageable) {
+		Page<Report> reports = reportRepository.findAll(pageable);
+		for (Report r : reports) {
+			r.getPerson().setReportList(null);
+		}
+		return reports;
 	}
 
 	@Override
-	public List<Report> findAllByDateBetween(Date dateMin, Date dateMax) {
-		return reportRepo.findAllByReportingDateBetween(dateMin, dateMax);
+	public Report post(Report report) {
+		return reportRepository.save(report);
 	}
 
-	
+	@Override
+	public Report put(Long id, Report report) {
+		Optional<Report> update = reportRepository.findById(id);
+		if (update.isEmpty()) {
+			throw new SegnalazioniException("Report not found.");
+		}
+		update.get().setTypeOfReport(report.getTypeOfReport());
+		reportRepository.save(update.get());
+		return update.get();
+	}
+
+	@Override
+	public void delete(Long id) {
+		Optional<Report> report = reportRepository.findById(id);
+		if (report.isEmpty()) {
+			throw new SegnalazioniException("Report not found.");
+		}
+		reportRepository.deleteById(id);
+	}
+
+	@Override
+	public Page<Report> findByFiscalCode(String fiscalCode, Pageable pageable) {
+		Page<Report> reports = reportRepository.findByPerson(personRepository.findByFiscalCode(fiscalCode).get(),
+				pageable);
+		for (Report r : reports) {
+			r.getPerson().setReportList(null);
+		}
+		return reports;
+	}
+
+	@Override
+	public Page<Report> findByTypeOfReport(TypeOfReport typeOfReport, Pageable pageable) {
+		return reportRepository.findByTypeOfReport(typeOfReport, pageable);
+	}
+
+	@Override
+	public Page<Report> findByReportingDate(Date reportingDate, Pageable pageable) {
+		return reportRepository.findByReportingDateOrderByReportingDate(reportingDate, pageable);
+	}
+
 }

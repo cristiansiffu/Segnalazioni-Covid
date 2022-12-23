@@ -1,15 +1,13 @@
 package com.Segnalazioni.Covid.model;
 
-import java.time.LocalDate;
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,15 +22,18 @@ public class Report {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long idReport;
+	@Enumerated(EnumType.STRING)
 	private TypeOfReport typeOfReport;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-	@JsonIgnore
 	private Person person;
 	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date reportingDate;
+	@Enumerated(EnumType.STRING)
 	private Triage triage;
+	@Enumerated(EnumType.STRING)
 	private Abstention abstention;
+	@Enumerated(EnumType.STRING)
 	private Disinfection disinfection;
 	private String question1;
 	private String question2;
@@ -52,10 +53,12 @@ public class Report {
 	private String answer7;
 	private String answer8;
 	private String answer9;
+	@Enumerated(EnumType.STRING)
 	private NewClassification newClassification;
+	@Enumerated(EnumType.STRING)
 	private OldClassification oldClassification;
 	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date proposedAbstentionDate;
 
 	/************ COSTRUTTORE *************/

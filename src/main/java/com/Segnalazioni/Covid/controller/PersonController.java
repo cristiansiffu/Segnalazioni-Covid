@@ -63,14 +63,14 @@ public class PersonController {
 		return new ResponseEntity<String>("Successfully deleted.", HttpStatus.OK);
 	}
 
-	@GetMapping("/getByFiscalCode/{fiscalCode}")
-	public ResponseEntity<Person> getByFiscalCode(@PathVariable String fiscalCode) {
+	@GetMapping("/getByFiscalCode")
+	public ResponseEntity<Person> getByFiscalCode(@RequestParam String fiscalCode) {
 		Person person = personServiceImpl.findByFiscalCode(fiscalCode);
 		return new ResponseEntity<Person>(person, HttpStatus.OK);
 	}
 
-	@GetMapping("/getBydateOfBirth")
-	public ResponseEntity<Page<Person>> findByInsertDate(
+	@GetMapping("/getByDateOfBirth")
+	public ResponseEntity<Page<Person>> findByDateOfBirth(
 			@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateOfBirth, Pageable pageable) {
 		Page<Person> persons = personServiceImpl.findByDateOfBirth(dateOfBirth, pageable);
 		return new ResponseEntity<Page<Person>>(persons, HttpStatus.OK);

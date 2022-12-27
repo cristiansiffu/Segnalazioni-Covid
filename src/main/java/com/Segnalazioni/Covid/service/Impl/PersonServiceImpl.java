@@ -72,7 +72,7 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public Page<Person> findByDateOfBirth(Date dateOfBirth, Pageable pageable) {
-		return personRepository.findByDateOfBirthOrderByDateOfBirth(dateOfBirth, pageable);
+		return personRepository.findAllByDateOfBirth(dateOfBirth, pageable);
 	}
 
 	@Override

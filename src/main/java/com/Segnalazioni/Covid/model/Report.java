@@ -26,7 +26,7 @@ public class Report {
 	private TypeOfReport typeOfReport;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	private Person person;
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date reportingDate;
 	@Enumerated(EnumType.STRING)
@@ -57,7 +57,7 @@ public class Report {
 	private NewClassification newClassification;
 	@Enumerated(EnumType.STRING)
 	private OldClassification oldClassification;
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date proposedAbstentionDate;
 

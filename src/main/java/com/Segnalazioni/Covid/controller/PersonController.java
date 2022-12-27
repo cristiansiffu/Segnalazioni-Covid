@@ -63,8 +63,8 @@ public class PersonController {
 		return new ResponseEntity<String>("Successfully deleted.", HttpStatus.OK);
 	}
 
-	@GetMapping("/getByFiscalCode")
-	public ResponseEntity<Person> getByFiscalCode(@RequestParam String fiscalCode) {
+	@GetMapping("/getByFiscalCode/{fiscalCode}")
+	public ResponseEntity<Person> getByFiscalCode(@PathVariable String fiscalCode) {
 		Person person = personServiceImpl.findByFiscalCode(fiscalCode);
 		return new ResponseEntity<Person>(person, HttpStatus.OK);
 	}

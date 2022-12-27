@@ -17,10 +17,10 @@ public interface ReportRepository extends JpaRepository<Report, Long> {
 
 	public Optional<Report> findById(Long id);
 
-	public Page<Report> findByPerson(Person person, Pageable pageable);
+	public Page<Report> findByPerson(Person fiscalCode, Pageable pageable);
 
 	public Page<Report> findByTypeOfReport(TypeOfReport typeOfReport, Pageable pageable);
 
-	public Page<Report> findByReportingDateOrderByReportingDate(Date reportingDate, Pageable pageable);
+	public Page<Report> findAllByReportingDate(Date reportingDate, Pageable pageable);
 
 }

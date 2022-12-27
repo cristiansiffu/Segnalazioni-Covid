@@ -69,11 +69,8 @@ public class ReportServiceImpl implements ReportService {
 
 	@Override
 	public Page<Report> findByFiscalCode(String fiscalCode, Pageable pageable) {
-		Page<Report> reports = reportRepository.findByPerson(personRepository.findByFiscalCode(fiscalCode).get(),
-				pageable);
-		for (Report r : reports) {
-			r.getPerson().setReportList(null);
-		}
+		Page<Report> reports = reportRepository
+				.findByPerson(personRepository.findByFiscalCode(fiscalCode).get(), pageable);
 		return reports;
 	}
 
@@ -84,7 +81,7 @@ public class ReportServiceImpl implements ReportService {
 
 	@Override
 	public Page<Report> findByReportingDate(Date reportingDate, Pageable pageable) {
-		return reportRepository.findByReportingDateOrderByReportingDate(reportingDate, pageable);
+		return reportRepository.findAllByReportingDate(reportingDate, pageable);
 	}
 
 }

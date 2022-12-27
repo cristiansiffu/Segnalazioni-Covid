@@ -23,7 +23,7 @@ public class ReportDTO {
 	@Enumerated(EnumType.STRING)
 	private TypeOfReport typeOfReport;
 	private Long idPerson;
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date reportingDate;
 	@Enumerated(EnumType.STRING)
@@ -54,7 +54,8 @@ public class ReportDTO {
 	private NewClassification newClassification;
 	@Enumerated(EnumType.STRING)
 	private OldClassification oldClassification;
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date proposedAbstentionDate;
 
 	/*************** CONSTRUCTOR *****************/

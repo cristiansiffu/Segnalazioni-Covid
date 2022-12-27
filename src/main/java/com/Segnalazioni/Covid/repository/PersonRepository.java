@@ -17,7 +17,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 
 	public Optional<Person> findByFiscalCode(String fiscalCode);
 
-	public Page<Person> findByDateOfBirthOrderByDateOfBirth(Date dateOfBirth, Pageable pageable);
+	public Page<Person> findAllByDateOfBirth(Date dateOfBirth, Pageable pageable);
 
 	public Page<Person> findBySurname(String surname, Pageable pageable);
 

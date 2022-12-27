@@ -1,5 +1,7 @@
 package com.Segnalazioni.Covid.model.dto.converter;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -16,11 +18,12 @@ public class ReportDTOConverter implements Converter<ReportDTO, Report>{
 	
 	@Override
 	public Report convert(ReportDTO source) {
+		LocalDate localDate = LocalDate.now();
 		Report report = new Report();
 		report.setIdReport(source.getIdReport());
 		report.setTypeOfReport(source.getTypeOfReport());
 		report.setPerson(personRepository.findById(source.getIdPerson()).get());
-		report.setReportingDate(source.getReportingDate());
+		report.setReportingDate(localDate);
 		report.setTriage(source.getTriage());
 		report.setAbstention(source.getAbstention());
 		report.setDisinfection(source.getDisinfection());

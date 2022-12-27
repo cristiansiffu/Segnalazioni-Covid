@@ -1,6 +1,6 @@
 package com.Segnalazioni.Covid.service;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +26,6 @@ public interface ReportService {
 
 	public Page<Report> findByTypeOfReport(TypeOfReport typeOfReport, Pageable pageable);
 
-	public Page<Report> findByReportingDate(Date reportingDate, Pageable pageable);
+	public Page<Report> findByReportingDate(LocalDate reportingDate, Pageable pageable);
 
 }

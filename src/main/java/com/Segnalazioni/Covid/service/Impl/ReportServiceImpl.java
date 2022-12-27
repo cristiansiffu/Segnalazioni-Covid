@@ -1,6 +1,6 @@
 package com.Segnalazioni.Covid.service.Impl;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +36,6 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public Page<Report> getAll(Pageable pageable) {
 		Page<Report> reports = reportRepository.findAll(pageable);
-		for (Report r : reports) {
-			r.getPerson().setReportList(null);
-		}
 		return reports;
 	}
 
@@ -80,7 +77,7 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public Page<Report> findByReportingDate(Date reportingDate, Pageable pageable) {
+	public Page<Report> findByReportingDate(LocalDate reportingDate, Pageable pageable) {
 		return reportRepository.findAllByReportingDate(reportingDate, pageable);
 	}
 

@@ -2,14 +2,9 @@ package com.Segnalazioni.Covid.util;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import org.springframework.context.support.BeanDefinitionDsl.Role;
 
 import com.Segnalazioni.Covid.model.Person;
 import com.Segnalazioni.Covid.model.Roles;
@@ -23,18 +18,14 @@ public class MyPersonFileReader {
 		List<Person> personList = new ArrayList<>();
 		String[] record = null;
 		while ((record = reader.readNext()) != null) {
-			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-			Date dateOfBirth;
 			Person person = new Person();
 			person.setFiscalCode(record[0]);
 			person.setName(record[1]);
 			person.setSurname(record[2]);
-			dateOfBirth = formatter.parse(record[3]);
 			if (record[4].equalsIgnoreCase("DIPENDENTE"))
 				person.setRole(Roles.DIPENDENTE);
 			if (record[4].equalsIgnoreCase("MANAGER"))
 				person.setRole(Roles.MANAGER);
-			person.setDateOfBirth(dateOfBirth);
 			personList.add(person);
 		}
 		reader.close();

@@ -1,6 +1,6 @@
 package com.Segnalazioni.Covid.repository;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -17,7 +17,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 
 	public Optional<Person> findByFiscalCode(String fiscalCode);
 
-	public Page<Person> findAllByDateOfBirth(Date dateOfBirth, Pageable pageable);
+	public Page<Person> findAllByDateOfBirth(LocalDate dateOfBirth, Pageable pageable);
 
 	public Page<Person> findBySurname(String surname, Pageable pageable);
 

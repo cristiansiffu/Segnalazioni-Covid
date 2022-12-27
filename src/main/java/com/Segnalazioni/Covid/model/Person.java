@@ -1,7 +1,10 @@
 package com.Segnalazioni.Covid.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -27,12 +30,17 @@ public class Person {
 	private String surname;
 	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern = "dd-MM-yyyy")
-	private Date dateOfBirth;
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private LocalDate dateOfBirth;
 	@Enumerated(EnumType.STRING)
 	private Roles role;
 	@OneToMany(mappedBy = "person", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE,
 			CascadeType.REFRESH }, fetch = FetchType.EAGER)
-	private List<Report> reportList;
+	private List<Report> reportList = new ArrayList<>();
+
+	public Person() {
+		super();
+	}
 
 	public Long getIdPerson() {
 		return idPerson;
@@ -66,11 +74,11 @@ public class Person {
 		this.surname = surname;
 	}
 
-	public Date getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

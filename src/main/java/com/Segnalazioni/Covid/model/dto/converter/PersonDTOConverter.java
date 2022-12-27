@@ -1,5 +1,8 @@
 package com.Segnalazioni.Covid.model.dto.converter;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -11,9 +14,10 @@ public class PersonDTOConverter implements Converter<PersonDTO, Person> {
 
 	@Override
 	public Person convert(PersonDTO source) {
+		LocalDate localDate = LocalDate.now();
 		Person person = new Person();
 		person.setIdPerson(source.getIdPerson());
-		person.setDateOfBirth(source.getDateOfBirth());
+		person.setDateOfBirth(localDate);
 		person.setFiscalCode(source.getFiscalCode());
 		person.setName(source.getName());
 		person.setRole(source.getRole());

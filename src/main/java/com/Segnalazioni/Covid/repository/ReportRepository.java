@@ -1,6 +1,6 @@
 package com.Segnalazioni.Covid.repository;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -21,6 +21,6 @@ public interface ReportRepository extends JpaRepository<Report, Long> {
 
 	public Page<Report> findByTypeOfReport(TypeOfReport typeOfReport, Pageable pageable);
 
-	public Page<Report> findAllByReportingDate(Date reportingDate, Pageable pageable);
+	public Page<Report> findAllByReportingDate(LocalDate reportingDate, Pageable pageable);
 
 }

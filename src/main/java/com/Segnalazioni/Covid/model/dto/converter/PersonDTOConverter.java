@@ -14,10 +14,9 @@ public class PersonDTOConverter implements Converter<PersonDTO, Person> {
 
 	@Override
 	public Person convert(PersonDTO source) {
-		LocalDate localDate = LocalDate.now();
 		Person person = new Person();
 		person.setIdPerson(source.getIdPerson());
-		person.setDateOfBirth(localDate);
+		person.setDateOfBirth(source.getDateOfBirth());
 		person.setFiscalCode(source.getFiscalCode());
 		person.setName(source.getName());
 		person.setRole(source.getRole());

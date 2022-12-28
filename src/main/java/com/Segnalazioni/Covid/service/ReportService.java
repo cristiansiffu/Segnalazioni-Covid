@@ -28,4 +28,6 @@ public interface ReportService {
 
 	public Page<Report> findByReportingDate(LocalDate reportingDate, Pageable pageable);
 
+	public Page<Report> findAllByReportingDateBetween(LocalDate start, LocalDate end, Pageable pageable);
+
 }

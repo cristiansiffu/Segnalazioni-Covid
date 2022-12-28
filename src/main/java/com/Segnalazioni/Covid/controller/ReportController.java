@@ -84,4 +84,12 @@ public class ReportController {
 		return new ResponseEntity<Page<Report>>(reports, HttpStatus.OK);
 	}
 
+	@GetMapping("/getByDateBetween")
+	public ResponseEntity<Page<Report>> findByDateBetween(
+			@RequestParam("start") @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate start,
+			@RequestParam("end") @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate end, Pageable pageable) {
+		Page<Report> reports = reportServiceImpl.findAllByReportingDateBetween(start, end, pageable);
+		return new ResponseEntity<Page<Report>>(reports, HttpStatus.OK);
+	}
+
 }

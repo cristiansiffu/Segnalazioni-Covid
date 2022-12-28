@@ -81,4 +81,9 @@ public class ReportServiceImpl implements ReportService {
 		return reportRepository.findAllByReportingDate(reportingDate, pageable);
 	}
 
+	@Override
+	public Page<Report> findAllByReportingDateBetween(LocalDate start, LocalDate end, Pageable pageable) {
+		return reportRepository.findAllByReportingDateBetween(start, end, pageable);
+	}
+
 }

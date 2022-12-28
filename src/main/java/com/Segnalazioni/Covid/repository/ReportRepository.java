@@ -23,4 +23,6 @@ public interface ReportRepository extends JpaRepository<Report, Long> {
 
 	public Page<Report> findAllByReportingDate(LocalDate reportingDate, Pageable pageable);
 
+	public Page<Report> findAllByReportingDateBetween(LocalDate start, LocalDate end, Pageable pageable);
+
 }

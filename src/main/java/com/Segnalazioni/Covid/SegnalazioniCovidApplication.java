@@ -3,9 +3,7 @@ package com.Segnalazioni.Covid;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication // (exclude = { DataSourceAutoConfiguration.class })
-//@ComponentScan(basePackages={"com.Segnalazioni.Covid"})
-
+@SpringBootApplication
 public class SegnalazioniCovidApplication {
 
 	public static void main(String[] args) {

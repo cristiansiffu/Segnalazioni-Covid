@@ -71,7 +71,8 @@ public class PersonController {
 
 	@GetMapping("/getByDateOfBirth")
 	public ResponseEntity<Page<Person>> findByDateOfBirth(
-			@RequestParam("dateOfBirth") @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateOfBirth, Pageable pageable) {
+			@RequestParam("dateOfBirth") @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateOfBirth,
+			Pageable pageable) {
 		Page<Person> persons = personServiceImpl.findByDateOfBirth(dateOfBirth, pageable);
 		return new ResponseEntity<Page<Person>>(persons, HttpStatus.OK);
 	}

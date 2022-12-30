@@ -36,10 +36,10 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public Person post(Person person) {
 		Optional<Person> personResult = personRepository.findByFiscalCode(person.getFiscalCode());
-		if (!personResult.isPresent())
+		if (personResult.isPresent()) {
+			throw new SegnalazioniException("Person already exist");
+		} else
 			return personRepository.save(person);
-		else
-			throw new SegnalazioniException("Person alredy exist");
 	}
 
 	@Override

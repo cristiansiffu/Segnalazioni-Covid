@@ -66,10 +66,24 @@ public class Report {
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate proposedAbstentionDate;
+	private Path path;
 
 	public Report() {
 		super();
 	}
+	
+
+	public Path getPath() {
+		return path;
+	}
+
+
+
+	public void setPath(Path path) {
+		this.path = path;
+	}
+
+
 
 	public Long getIdReport() {
 		return idReport;

@@ -35,11 +35,10 @@ public class Report {
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate reportingDate;
 	@Enumerated(EnumType.STRING)
-	private Triage triage;
+	private Boolean triage;
+	private Boolean abstention;
 	@Enumerated(EnumType.STRING)
-	private Abstention abstention;
-	@Enumerated(EnumType.STRING)
-	private Disinfection disinfection;
+	private Boolean disinfection;
 	private String question1;
 	private String question2;
 	private String question3;
@@ -48,7 +47,6 @@ public class Report {
 	private String question6;
 	private String question7;
 	private String question8;
-	private String question9;
 	private String answer1;
 	private String answer2;
 	private String answer3;
@@ -57,7 +55,6 @@ public class Report {
 	private String answer6;
 	private String answer7;
 	private String answer8;
-	private String answer9;
 	@Enumerated(EnumType.STRING)
 	private NewClassification newClassification;
 	@Enumerated(EnumType.STRING)
@@ -117,27 +114,27 @@ public class Report {
 		this.reportingDate = reportingDate;
 	}
 
-	public Triage getTriage() {
+	public Boolean getTriage() {
 		return triage;
 	}
 
-	public void setTriage(Triage triage) {
+	public void setTriage(Boolean triage) {
 		this.triage = triage;
 	}
 
-	public Abstention getAbstention() {
+	public Boolean getAbstention() {
 		return abstention;
 	}
 
-	public void setAbstention(Abstention abstention) {
+	public void setAbstention(Boolean abstention) {
 		this.abstention = abstention;
 	}
 
-	public Disinfection getDisinfection() {
+	public Boolean getDisinfection() {
 		return disinfection;
 	}
 
-	public void setDisinfection(Disinfection disinfection) {
+	public void setDisinfection(Boolean disinfection) {
 		this.disinfection = disinfection;
 	}
 
@@ -205,14 +202,6 @@ public class Report {
 		this.question8 = question8;
 	}
 
-	public String getQuestion9() {
-		return question9;
-	}
-
-	public void setQuestion9(String question9) {
-		this.question9 = question9;
-	}
-
 	public String getAnswer1() {
 		return answer1;
 	}
@@ -275,14 +264,6 @@ public class Report {
 
 	public void setAnswer8(String answer8) {
 		this.answer8 = answer8;
-	}
-
-	public String getAnswer9() {
-		return answer9;
-	}
-
-	public void setAnswer9(String answer9) {
-		this.answer9 = answer9;
 	}
 
 	public NewClassification getNewClassification() {

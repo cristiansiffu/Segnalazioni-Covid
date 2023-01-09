@@ -1,18 +1,13 @@
 package com.Segnalazioni.Covid.model.dto;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.Segnalazioni.Covid.model.Abstention;
-import com.Segnalazioni.Covid.model.Disinfection;
 import com.Segnalazioni.Covid.model.NewClassification;
 import com.Segnalazioni.Covid.model.OldClassification;
-import com.Segnalazioni.Covid.model.Triage;
 import com.Segnalazioni.Covid.model.TypeOfReport;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -30,11 +25,11 @@ public class ReportDTO {
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate reportingDate;
 	@Enumerated(EnumType.STRING)
-	private Triage triage;
+	private Boolean triage;
 	@Enumerated(EnumType.STRING)
-	private Abstention abstention;
+	private Boolean abstention;
 	@Enumerated(EnumType.STRING)
-	private Disinfection disinfection;
+	private Boolean disinfection;
 	private String question1;
 	private String question2;
 	private String question3;
@@ -98,27 +93,27 @@ public class ReportDTO {
 		this.reportingDate = reportingDate;
 	}
 
-	public Triage getTriage() {
+	public Boolean getTriage() {
 		return triage;
 	}
 
-	public void setTriage(Triage triage) {
+	public void setTriage(Boolean triage) {
 		this.triage = triage;
 	}
 
-	public Abstention getAbstention() {
+	public Boolean getAbstention() {
 		return abstention;
 	}
 
-	public void setAbstention(Abstention abstention) {
+	public void setAbstention(Boolean abstention) {
 		this.abstention = abstention;
 	}
 
-	public Disinfection getDisinfection() {
+	public Boolean getDisinfection() {
 		return disinfection;
 	}
 
-	public void setDisinfection(Disinfection disinfection) {
+	public void setDisinfection(Boolean disinfection) {
 		this.disinfection = disinfection;
 	}
 

@@ -33,11 +33,9 @@ public class Report {
 	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private LocalDate reportingDate;
-	@Enumerated(EnumType.STRING)
+	private LocalDate reportingDate;	
 	private Boolean triage;
-	private Boolean abstention;
-	@Enumerated(EnumType.STRING)
+	private Boolean abstention;	
 	private Boolean disinfection;
 	private String question1;
 	private String question2;

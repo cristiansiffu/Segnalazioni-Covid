@@ -31,8 +31,8 @@ public class Report {
 	@JsonIgnore
 	private Person person;
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern = "dd-MM-yyyy")
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+//	@JsonFormat(pattern = "dd-MM-yyyy")
+//	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate reportingDate;	
 	private Boolean triage;
 	private Boolean abstention;	
@@ -58,8 +58,8 @@ public class Report {
 	@Enumerated(EnumType.STRING)
 	private OldClassification oldClassification;
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern = "dd-MM-yyyy")
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+//	@JsonFormat(pattern = "dd-MM-yyyy")
+//	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate proposedAbstentionDate;
 	private Path path;
 

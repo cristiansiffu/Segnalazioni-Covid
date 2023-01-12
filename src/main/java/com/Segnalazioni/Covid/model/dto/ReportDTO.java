@@ -21,14 +21,11 @@ public class ReportDTO {
 	private TypeOfReport typeOfReport;
 	private Long idPerson;
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern = "dd-MM-yyyy")
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private LocalDate reportingDate;
-	@Enumerated(EnumType.STRING)
-	private Boolean triage;
-	@Enumerated(EnumType.STRING)
-	private Boolean abstention;
-	@Enumerated(EnumType.STRING)
+//	@JsonFormat(pattern = "dd-MM-yyyy")
+//	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private LocalDate reportingDate;	
+	private Boolean triage;	
+	private Boolean abstention;	
 	private Boolean disinfection;
 	private String question1;
 	private String question2;
@@ -38,7 +35,7 @@ public class ReportDTO {
 	private String question6;
 	private String question7;
 	private String question8;
-	private String question9;
+	
 	private String answer1;
 	private String answer2;
 	private String answer3;
@@ -47,14 +44,14 @@ public class ReportDTO {
 	private String answer6;
 	private String answer7;
 	private String answer8;
-	private String answer9;
+	
 	@Enumerated(EnumType.STRING)
 	private NewClassification newClassification;
 	@Enumerated(EnumType.STRING)
 	private OldClassification oldClassification;
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern = "dd-MM-yyyy")
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+//	@JsonFormat(pattern = "dd-MM-yyyy")
+//	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate proposedAbstentionDate;
 
 	public ReportDTO() {
@@ -179,15 +176,7 @@ public class ReportDTO {
 
 	public void setQuestion8(String question8) {
 		this.question8 = question8;
-	}
-
-	public String getQuestion9() {
-		return question9;
-	}
-
-	public void setQuestion9(String question9) {
-		this.question9 = question9;
-	}
+	}	
 
 	public String getAnswer1() {
 		return answer1;
@@ -252,15 +241,7 @@ public class ReportDTO {
 	public void setAnswer8(String answer8) {
 		this.answer8 = answer8;
 	}
-
-	public String getAnswer9() {
-		return answer9;
-	}
-
-	public void setAnswer9(String answer9) {
-		this.answer9 = answer9;
-	}
-
+	
 	public NewClassification getNewClassification() {
 		return newClassification;
 	}

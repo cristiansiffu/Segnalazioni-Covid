@@ -44,6 +44,7 @@ public class ReportDTOConverter implements Converter<ReportDTO, Report>{
 		report.setNewClassification(source.getNewClassification());
 		report.setOldClassification(source.getOldClassification());
 		report.setProposedAbstentionDate(source.getProposedAbstentionDate());
+		System.out.println("SONO IO" + report);
 		return report;
 	}
 

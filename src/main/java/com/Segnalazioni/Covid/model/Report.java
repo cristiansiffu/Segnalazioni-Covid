@@ -61,6 +61,7 @@ public class Report {
 //	@JsonFormat(pattern = "dd-MM-yyyy")
 //	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate proposedAbstentionDate;
+	@Enumerated(EnumType.STRING)
 	private Path path;
 
 	public Report() {
@@ -287,5 +288,21 @@ public class Report {
 	public void setProposedAbstentionDate(LocalDate proposedAbstentionDate) {
 		this.proposedAbstentionDate = proposedAbstentionDate;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Report [idReport=" + idReport + ", typeOfReport=" + typeOfReport + ", person=" + person
+				+ ", reportingDate=" + reportingDate + ", triage=" + triage + ", abstention=" + abstention
+				+ ", disinfection=" + disinfection + ", question1=" + question1 + ", question2=" + question2
+				+ ", question3=" + question3 + ", question4=" + question4 + ", question5=" + question5 + ", question6="
+				+ question6 + ", question7=" + question7 + ", question8=" + question8 + ", answer1=" + answer1
+				+ ", answer2=" + answer2 + ", answer3=" + answer3 + ", answer4=" + answer4 + ", answer5=" + answer5
+				+ ", answer6=" + answer6 + ", answer7=" + answer7 + ", answer8=" + answer8 + ", newClassification="
+				+ newClassification + ", oldClassification=" + oldClassification + ", proposedAbstentionDate="
+				+ proposedAbstentionDate + ", path=" + path + "]";
+	}
+	
+	
 
 }

@@ -2,12 +2,10 @@ package com.Segnalazioni.Covid.model.dto;
 
 import java.time.LocalDate;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.Segnalazioni.Covid.model.NewClassification;
 import com.Segnalazioni.Covid.model.OldClassification;
+import com.Segnalazioni.Covid.model.Path;
 import com.Segnalazioni.Covid.model.TypeOfReport;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -53,6 +51,16 @@ public class ReportDTO {
 //	@JsonFormat(pattern = "dd-MM-yyyy")
 //	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate proposedAbstentionDate;
+	@Enumerated(EnumType.STRING)
+	private Path path;
+
+	public Path getPath() {
+		return path;
+	}
+
+	public void setPath(Path path) {
+		this.path = path;
+	}
 
 	public ReportDTO() {
 		super();
@@ -265,5 +273,20 @@ public class ReportDTO {
 	public void setProposedAbstentionDate(LocalDate proposedAbstentionDate) {
 		this.proposedAbstentionDate = proposedAbstentionDate;
 	}
+
+	@Override
+	public String toString() {
+		return "ReportDTO [idReport=" + idReport + ", typeOfReport=" + typeOfReport + ", idPerson=" + idPerson
+				+ ", reportingDate=" + reportingDate + ", triage=" + triage + ", abstention=" + abstention
+				+ ", disinfection=" + disinfection + ", question1=" + question1 + ", question2=" + question2
+				+ ", question3=" + question3 + ", question4=" + question4 + ", question5=" + question5 + ", question6="
+				+ question6 + ", question7=" + question7 + ", question8=" + question8 + ", answer1=" + answer1
+				+ ", answer2=" + answer2 + ", answer3=" + answer3 + ", answer4=" + answer4 + ", answer5=" + answer5
+				+ ", answer6=" + answer6 + ", answer7=" + answer7 + ", answer8=" + answer8 + ", newClassification="
+				+ newClassification + ", oldClassification=" + oldClassification + ", proposedAbstentionDate="
+				+ proposedAbstentionDate + "]";
+	}
+	
+	
 
 }

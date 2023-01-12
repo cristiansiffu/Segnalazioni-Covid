@@ -34,6 +34,7 @@ public class ReportDTOConverter implements Converter<ReportDTO, Report>{
 		report.setQuestion5(source.getQuestion5());
 		report.setQuestion6(source.getQuestion6());
 		report.setQuestion7(source.getQuestion7());
+		report.setQuestion8(source.getQuestion8());
 		report.setAnswer1(source.getAnswer1());
 		report.setAnswer2(source.getAnswer2());
 		report.setAnswer3(source.getAnswer3());
@@ -41,9 +42,11 @@ public class ReportDTOConverter implements Converter<ReportDTO, Report>{
 		report.setAnswer5(source.getAnswer5());
 		report.setAnswer6(source.getAnswer6());
 		report.setAnswer7(source.getAnswer7());
+		report.setAnswer8(source.getAnswer8());
 		report.setNewClassification(source.getNewClassification());
 		report.setOldClassification(source.getOldClassification());
 		report.setProposedAbstentionDate(source.getProposedAbstentionDate());
+		report.setPath(source.getPath());
 		System.out.println("SONO IO" + report);
 		return report;
 	}
